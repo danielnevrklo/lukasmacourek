@@ -1,1 +1,250 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukáš Macourek | Profesionální instruktor lyžování</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap](https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap)" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #003366;
+            --yellow: #FFCC00;
+            --white: #FFFFFF;
+            --light-grey: #F4F4F4;
+            --text-dark: #1A1A1A;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 51, 102, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            color: var(--white);
+        }
+
+       .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+       .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+       .lang-switch button {
+            background: none;
+            border: 1px solid var(--white);
+            color: var(--white);
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('[https://raw.githubusercontent.com/ai-ski-research/images/main/skier_hero.jpg](https://raw.githubusercontent.com/ai-ski-research/images/main/skier_hero.jpg)') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        #hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        #hero p { font-size: 1.5rem; margin-bottom: 2rem; }
+
+       .btn {
+            background: var(--yellow);
+            color: var(--blue);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+       .btn:hover { background: var(--white); transform: scale(1.05); }
+
+        /* General Section Styling */
+        section { padding: 80px 10%; }
+       .section-title { text-align: center; margin-bottom: 50px; color: var(--blue); font-size: 2.5rem; }
+
+        /* Services Grid */
+       .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+       .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-bottom: 5px solid var(--yellow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+       .service-card h3 { color: var(--blue); margin-bottom: 15px; }
+
+        /* About Section */
+        #about { background: var(--light-grey); display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+       .about-text { flex: 1; min-width: 300px; }
+       .about-img { flex: 1; min-width: 300px; text-align: center; }
+       .about-img img { width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 10px 10px 0 var(--blue); }
+
+        /* Pricing Table */
+       .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+       .pricing-table th { background: var(--blue); color: var(--white); padding: 15px; }
+       .pricing-table td { padding: 15px; border-bottom: 1px solid #ddd; text-align: center; }
+       .pricing-table tr:nth-child(even) { background: #f9f9f9; }
+
+        /* Contact & Footer */
+        footer { background: var(--blue); color: var(--white); padding: 50px 10%; text-align: center; }
+       .contact-info { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
+       .contact-item { font-weight: bold; }
+
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.2rem; }
+            section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><strong>LUKÁŠ MACOUREK</strong></div>
+    <div class="nav-links">
+        <a href="#services" data-lang-cs="Služby" data-lang-en="Services">Služby</a>
+        <a href="#about" data-lang-cs="O mně" data-lang-en="About">O mně</a>
+        <a href="#pricing" data-lang-cs="Ceník" data-lang-en="Pricing">Ceník</a>
+        <a href="#booking" data-lang-cs="Rezervace" data-lang-en="Booking">Rezervace</a>
+    </div>
+    <div class="lang-switch">
+        <button onclick="changeLang('cs')">CZ</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+</nav>
+
+<section id="hero">
+    <h1 data-lang-cs="Změňte svůj styl na svahu" data-lang-en="Master the Slopes">Změňte svůj styl na svahu</h1>
+    <p data-lang-cs="Profesionální výuka v Harrachově, Rokytnici a Příchovicích" data-lang-en="Professional coaching in Harrachov & Rokytnice">Profesionální výuka v Harrachově, Rokytnici a Příchovicích</p>
+    <a href="#booking" class="btn" data-lang-cs="Rezervovat lekci" data-lang-en="Book a Lesson">Rezervovat lekci</a>
+</section>
+
+<section id="services">
+    <h2 class="section-title" data-lang-cs="Kde učíme" data-lang-en="Locations & Services">Kde učíme</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3 data-lang-cs="Rokytnice nad Jizerou" data-lang-en="Rokytnice nad Jizerou">Rokytnice nad Jizerou</h3>
+            <p data-lang-cs="Ideální terény pro carving a pokročilou techniku na Lysé hoře." data-lang-en="Perfect terrain for carving and advanced technique on Lysá hora.">Ideální terény pro carving a pokročilou techniku na Lysé hoře.</p>
+        </div>
+        <div class="service-card">
+            <h3 data-lang-cs="Harrachov" data-lang-en="Harrachov">Harrachov</h3>
+            <p data-lang-cs="Privátní výuka a Race Coaching pro ambiciózní lyžaře." data-lang-en="Private lessons and Race Coaching for ambitious skiers.">Privátní výuka a Race Coaching pro ambiciózní lyžaře.</p>
+        </div>
+        <div class="service-card">
+            <h3 data-lang-cs="U Čápa Příchovice" data-lang-en="U Čápa Příchovice">U Čápa Příchovice</h3>
+            <p data-lang-cs="Rodinná atmosféra a bezpečné svahy pro začátečníky a děti." data-lang-en="Family atmosphere and safe slopes for beginners and kids.">Rodinná atmosféra a bezpečné svahy pro začátečníky a děti.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-text">
+        <h2 data-lang-cs="Lukáš Macourek" data-lang-en="Lukáš Macourek">Lukáš Macourek</h2>
+        <p><strong>Lektor APUL L | Držitel ISIA Card | Race Kouč 1</strong></p>
+        <p data-lang-cs="S více než 15 lety zkušeností z Rakouska, Švýcarska a Austrálie vám pomůžu posunout vaše limity. Mým cílem není jen učit, ale stát se vaším parťákem na svahu." 
+           data-lang-en="With over 15 years of experience in Austria, Switzerland, and Australia, I help you push your limits. My goal is to be your partner on the slope, not just a teacher.">
+           S více než 15 lety zkušeností z Rakouska, Švýcarska a Austrálie vám pomůžu posunout vaše limity. Mým cílem není jen učit, ale stát se vaším parťákem na svahu.
+        </p>
+    </div>
+    <div class="about-img">
+        <img src="[https://raw.githubusercontent.com/ai-ski-research/images/main/lukas_portrait.jpg](https://raw.githubusercontent.com/ai-ski-research/images/main/lukas_portrait.jpg)" alt="Lukáš Macourek">
+    </div>
+</section>
+
+<section id="pricing">
+    <h2 class="section-title" data-lang-cs="Ceník výuky" data-lang-en="Pricing">Ceník výuky</h2>
+    <table class="pricing-table">
+        <thead>
+            <tr>
+                <th data-lang-cs="Program" data-lang-en="Program">Program</th>
+                <th data-lang-cs="Doba" data-lang-en="Duration">Doba</th>
+                <th data-lang-cs="Cena" data-lang-en="Price">Cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Lyžování 2</td><td>2 hod</td><td>2 500 Kč</td></tr>
+            <tr><td>Lyžování 4</td><td>4 hod</td><td>3 900 Kč</td></tr>
+            <tr><td>Lyžování 6</td><td>6 hod</td><td>5 600 Kč</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="booking">
+    <h2 class="section-title" data-lang-cs="Rezervace" data-lang-en="Book Now">Rezervace</h2>
+    <div class="calendly-inline-widget" data-url="[https://calendly.com/lukas-macourek?hide_event_type_details=1&background_color=ffffff&text_color=003366&primary_color=ffcc00](https://calendly.com/lukas-macourek?hide_event_type_details=1&background_color=ffffff&text_color=003366&primary_color=ffcc00)" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="[https://assets.calendly.com/assets/external/widget.js](https://assets.calendly.com/assets/external/widget.js)" async></script>
+</section>
+
+<section id="reviews">
+    <h2 class="section-title" data-lang-cs="Recenze klientů" data-lang-en="Reviews">Recenze klientů</h2>
+    <p style="text-align:center; color: #666;">Synchronizace s Google Business profilem...</p>
+    <div id="google-reviews-widget"></div>
+</section>
+
+<footer>
+    <div class="contact-info">
+        <div class="contact-item">📞 +420 728 183 036</div>
+        <div class="contact-item">✉️ lukas.macourek@gmail.com</div>
+        <div class="contact-item">📍 Harrachov / Rokytnice</div>
+    </div>
+    <p>&copy; 2026 Lukáš Macourek. Všechna práva vyhrazena.</p>
+</footer>
+
+<script>
+    function changeLang(lang) {
+        document.querySelectorAll('[data-lang-cs]').forEach(el => {
+            el.textContent = el.getAttribute('data-lang-' + lang);
+        });
+    }
+</script>
+
+</body>
+</html>
