@@ -3,614 +3,536 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lukáš Macourek | Instruktor Lyžování</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Lukáš Macourek | Profesionální Instruktor Lyžování</title>
+    <meta name="description" content="Individuální výuka lyžování pro děti i dospělé v Rokytnici, Harrachově a U Čápa. 10+ let zkušeností, licence APUL & ISIA. Rezervujte si lekci online.">
+    <meta name="keywords" content="instruktor lyžování, lyžařská škola, Rokytnice nad Jizerou, Harrachov, skitouring, výuka lyžování, Lukáš Macourek">
+    <meta name="author" content="Lukáš Macourek">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lukáš Macourek | Instruktor Lyžování">
+    <meta property="og:description" content="Naučte se lyžovat s radostí a jistotou. Profesionální přístup v Krkonoších.">
+    <meta property="og:image" content="photos/Lukas_Macourek_Hero.webp">
+    <meta property="og:url" content="https://www.lukasmacourek.cz">
+
     <link rel="icon" type="image/png" href="photos/Logo_Favicon.jpg">
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
 
         .hero-overlay {
             background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
         }
 
-        /* Navigace při scrollování (Glass efekt) */
+        /* Styl pro skleněnou navigaci */
         .glass-nav {
             background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        /* Logika pro přepínání jazyků */
+        /* Třída, která vynutí bílé pozadí (pro otevřené mobilní menu) */
+        .force-white-nav {
+            background: #ffffff !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Language Toggle Logic */
         [data-lang="en"] { display: none; }
         .lang-en [data-lang="cs"] { display: none; }
         .lang-en [data-lang="en"] { display: block; }
 
-        /* Skrytí scrollbaru když je otevřené menu */
-        body.menu-open {
-            overflow: hidden;
+        /* Custom shape for profile image background */
+        .blob-bg {
+            background-color: #fef08a; /* yellow-200 equivalent */
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            z-index: 0;
         }
     </style>
 </head>
-<body class="bg-white text-slate-900 transition-colors duration-300 selection:bg-yellow-400 selection:text-blue-900">
+<body class="bg-white text-slate-900 transition-colors duration-300">
 
-<nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 md:py-6 px-4 md:px-6">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-3 relative z-50">
-            <a href="#home" class="block">
-                <img src="photos/Lukas_Macourek_Logo.webp" id="nav-logo" class="w-[180px] md:w-[245px] h-auto object-contain transition-opacity hover:opacity-90" alt="Logo Lukas Macourek">
+<header>
+    <nav id="navbar" class="fixed w-full z-[60] transition-all duration-300 py-4 md:py-6 px-4 md:px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-[60]">
+            <a href="#" class="flex items-center gap-3">
+                <span class="sr-only">Lukáš Macourek</span>
+                <img src="photos/Lukas_Macourek_Logo.webp" class="h-10 md:h-12 w-auto object-contain transition-all duration-300" alt="Logo Lukáš Macourek">
             </a>
-        </div>
 
-        <div class="hidden md:flex items-center gap-8">
-            <div id="nav-links" class="flex gap-8 text-sm font-bold text-white transition-colors">
-                <a href="#sluzby" class="hover:text-yellow-400 transition-colors tracking-wide"><span data-lang="cs">Služby</span><span data-lang="en">Services</span></a>
-                <a href="#o-mne" class="hover:text-yellow-400 transition-colors tracking-wide"><span data-lang="cs">O mně</span><span data-lang="en">About</span></a>
-                <a href="#cenik" class="hover:text-yellow-400 transition-colors tracking-wide"><span data-lang="cs">Ceník</span><span data-lang="en">Pricing</span></a>
-                <a href="#kontakt" class="hover:text-yellow-400 transition-colors tracking-wide"><span data-lang="cs">Kontakt</span><span data-lang="en">Contact</span></a>
+            <div class="hidden md:flex items-center gap-8">
+                <div id="nav-links" class="flex gap-6 lg:gap-8 text-sm font-bold text-white transition-colors">
+                    <a href="#sluzby" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Služby</span><span data-lang="en">Services</span></a>
+                    <a href="#o-mne" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">O mně</span><span data-lang="en">About</span></a>
+                    <a href="#cenik" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Ceník</span><span data-lang="en">Pricing</span></a>
+                    <a href="#kontakt" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Kontakt</span><span data-lang="en">Contact</span></a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleLang()" id="lang-btn" class="flex items-center gap-2 text-xs font-bold border-2 border-white/50 text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all">
+                        <i data-lucide="globe" class="w-3 h-3 text-yellow-400"></i>
+                        <span id="lang-indicator">EN</span>
+                    </button>
+                    <a href="#booking" id="nav-cta" class="bg-yellow-400 text-blue-900 px-5 py-2.5 rounded-full font-bold text-sm hover:bg-white hover:text-blue-900 transition-all shadow-lg transform hover:scale-105">
+                        <span data-lang="cs">Rezervace</span><span data-lang="en">Booking</span>
+                    </a>
+                </div>
             </div>
 
-            <div class="flex items-center gap-4">
-                <button onclick="toggleLang()" id="lang-btn" class="flex items-center gap-2 text-xs font-bold border-2 border-white/40 text-white px-4 py-2 rounded-full hover:bg-white/10 transition-all uppercase tracking-wider">
-                    <i data-lucide="globe" class="w-4 h-4 text-yellow-400"></i>
-                    <span class="lang-text">EN</span>
-                </button>
-                <a href="#booking" id="nav-cta" class="bg-yellow-400 text-blue-900 px-6 py-2.5 rounded-full font-bold text-sm hover:bg-white hover:text-blue-900 transition-all shadow-lg transform hover:-translate-y-0.5">
-                    <span data-lang="cs">Rezervace</span><span data-lang="en">Booking</span>
-                </a>
-            </div>
-        </div>
-
-        <button id="mobile-menu-trigger" class="md:hidden relative z-50 p-2 focus:outline-none transition-colors text-white">
-            <i data-lucide="menu" class="w-8 h-8"></i>
-        </button>
-    </div>
-</nav>
-
-<div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden">
-    <div class="flex justify-end p-6">
-        <button id="mobile-menu-close" class="p-2 text-blue-900 hover:text-red-500 transition-colors">
-            <i data-lucide="x" class="w-10 h-10"></i>
-        </button>
-    </div>
-
-    <div class="flex-grow flex flex-col items-center justify-center gap-8 pb-20">
-        <div class="flex flex-col gap-6 text-center">
-            <a href="#home" class="mobile-link text-3xl font-extrabold text-blue-900 hover:text-blue-600 transition-colors">
-                Domů
-            </a>
-            <a href="#sluzby" class="mobile-link text-3xl font-extrabold text-blue-900 hover:text-blue-600 transition-colors">
-                <span data-lang="cs">Služby</span><span data-lang="en">Services</span>
-            </a>
-            <a href="#o-mne" class="mobile-link text-3xl font-extrabold text-blue-900 hover:text-blue-600 transition-colors">
-                <span data-lang="cs">O mně</span><span data-lang="en">About</span>
-            </a>
-            <a href="#cenik" class="mobile-link text-3xl font-extrabold text-blue-900 hover:text-blue-600 transition-colors">
-                <span data-lang="cs">Ceník</span><span data-lang="en">Pricing</span>
-            </a>
-            <a href="#kontakt" class="mobile-link text-3xl font-extrabold text-blue-900 hover:text-blue-600 transition-colors">
-                <span data-lang="cs">Kontakt</span><span data-lang="en">Contact</span>
-            </a>
-        </div>
-
-        <div class="w-16 h-1 bg-slate-100 rounded-full"></div>
-
-        <div class="flex flex-col items-center gap-6 w-full px-10">
-            <button onclick="toggleLang()" class="flex items-center gap-2 text-sm font-bold text-slate-500 border border-slate-200 px-6 py-2 rounded-full hover:bg-slate-50 transition-all">
-                <i data-lucide="globe" class="w-4 h-4 text-blue-600"></i>
-                <span class="lang-text">EN</span>
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg focus:outline-none transition-all duration-300 text-white hover:bg-white/10 z-[60]" aria-label="Menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
             </button>
-
-            <a href="#booking" class="mobile-link w-full max-w-xs bg-yellow-400 text-blue-900 py-4 rounded-full font-black text-xl text-center shadow-xl hover:bg-yellow-300 transition-all uppercase tracking-wide">
-                <span data-lang="cs">Rezervace</span><span data-lang="en">Booking</span>
-            </a>
         </div>
-    </div>
-</div>
 
-<section id="home" class="relative h-screen flex items-end md:items-center justify-start overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="photos/Lukas_Macourek_Hero.webp" alt="Instruktor lyžování Lukáš Macourek" class="w-full h-full object-cover object-center">
-        <div class="absolute inset-0 hero-overlay"></div>
-    </div>
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-start pt-32 space-y-8 md:hidden h-screen w-screen overflow-y-auto">
+            <a href="#sluzby" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Služby</span><span data-lang="en">Services</span></a>
+            <a href="#o-mne" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">O mně</span><span data-lang="en">About</span></a>
+            <a href="#cenik" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Ceník</span><span data-lang="en">Pricing</span></a>
+            <a href="#kontakt" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Kontakt</span><span data-lang="en">Contact</span></a>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pb-32 md:pb-0">
-        <div class="max-w-3xl">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] mb-6 drop-shadow-2xl">
-                <span data-lang="cs">Lyžuj s radostí <br><span class="text-yellow-400">a jistotou.</span></span>
-                <span data-lang="en">Ski with joy <br><span class="text-yellow-400">& confidence.</span></span>
-            </h1>
-            <p class="text-lg md:text-2xl text-white/90 mb-10 font-medium max-w-2xl leading-relaxed">
-                <span data-lang="cs">Profesionální výuka pro děti i dospělé v Rokytnici, u Čápa a v Harrachově. Individuální přístup, který vás posune.</span>
-                <span data-lang="en">Professional lessons for kids & adults in Rokytnice, U Čápa and Harrachov. Individual approach that moves you forward.</span>
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#booking" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-full font-black text-lg hover:bg-white transition-all shadow-2xl text-center transform hover:-translate-y-1">
-                    <span data-lang="cs">CHCI REZERVOVAT</span><span data-lang="en">BOOK LESSON</span>
+            <div class="flex flex-col items-center gap-6 mt-8 pb-12">
+                <button onclick="toggleLang()" class="flex items-center gap-2 text-lg font-bold border-2 border-slate-200 text-slate-900 px-6 py-2 rounded-full">
+                    <i data-lucide="globe" class="w-5 h-5 text-blue-600"></i>
+                    <span id="mobile-lang-indicator">Switch to English</span>
+                </button>
+                <a href="#booking" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl mobile-link hover:bg-blue-700 transition-colors">
+                    <span data-lang="cs">Rezervovat lekci</span><span data-lang="en">Book Lesson</span>
                 </a>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
+</header>
 
-<section id="proc-se-mnou" class="py-16 md:py-24 bg-white relative z-20 -mt-8 rounded-t-[3rem] md:mt-0 md:rounded-none">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4">
-                <span data-lang="cs">PROČ SE MNOU</span><span data-lang="en">WHY ME</span>
-            </h2>
-            <h3 class="text-3xl md:text-5xl font-black text-slate-900">
-                <span data-lang="cs">Zážitek, který vás posune</span>
-                <span data-lang="en">An experience that moves you</span>
-            </h3>
+<main>
+    <section class="relative h-[90vh] md:h-screen flex items-end md:items-center justify-start overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="photos/Lukas_Macourek_Hero.webp" alt="Instruktor lyžování Lukáš Macourek Krkonoše" class="w-full h-full object-cover object-[65%_center] md:object-center">
+            <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
-            <div class="flex flex-col items-center text-center space-y-4 group">
-                <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-yellow-400 transition-colors duration-300 shadow-sm">
-                    <i data-lucide="zap" class="w-10 h-10"></i>
-                </div>
-                <h4 class="font-bold text-xl text-slate-900">
-                    <span data-lang="cs">Rychlý pokrok</span>
-                    <span data-lang="en">Fast Progress</span>
-                </h4>
-                <p class="text-slate-500 text-sm leading-relaxed px-4">
-                    <span data-lang="cs">Díky individuálnímu přístupu uvidíte výsledky již po první hodině.</span>
-                    <span data-lang="en">See visible results after your very first lesson.</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pb-24 md:pb-0" data-aos="fade-up" data-aos-duration="1000">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight mb-6 drop-shadow-2xl">
+                    <span data-lang="cs">Lyžuj s radostí <br><span class="text-yellow-400">a jistotou.</span></span>
+                    <span data-lang="en">Ski with joy <br><span class="text-yellow-400">& confidence.</span></span>
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 font-medium max-w-2xl leading-relaxed">
+                    <span data-lang="cs">Profesionální výuka pro děti i dospělé v Rokytnici, u Čápa a v Harrachově. Osobní přístup, který vás posune dál.</span>
+                    <span data-lang="en">Professional lessons for kids & adults in Rokytnice, U Čápa and Harrachov. Personal approach that moves you forward.</span>
                 </p>
-            </div>
-
-            <div class="flex flex-col items-center text-center space-y-4 group">
-                <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-yellow-400 transition-colors duration-300 shadow-sm">
-                    <i data-lucide="smile" class="w-10 h-10"></i>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#booking" class="bg-yellow-400 text-blue-900 px-8 md:px-10 py-4 rounded-2xl font-black text-lg hover:bg-white hover:scale-105 transition-all shadow-[0_20px_50px_rgba(250,204,21,0.3)] text-center">
+                        <span data-lang="cs">CHCI REZERVOVAT</span><span data-lang="en">BOOK LESSON</span>
+                    </a>
                 </div>
-                <h4 class="font-bold text-xl text-slate-900">
-                    <span data-lang="cs">Bez stresu</span>
-                    <span data-lang="en">Zero Stress</span>
-                </h4>
-                <p class="text-slate-500 text-sm leading-relaxed px-4">
-                    <span data-lang="cs">Učím trpělivě a s úsměvem. Moje lekce nejsou o drilu, ale o radosti.</span>
-                    <span data-lang="en">Patient teaching with a smile. It's about fun, not just drill.</span>
-                </p>
-            </div>
-
-            <div class="flex flex-col items-center text-center space-y-4 group">
-                <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-yellow-400 transition-colors duration-300 shadow-sm">
-                    <i data-lucide="target" class="w-10 h-10"></i>
-                </div>
-                <h4 class="font-bold text-xl text-slate-900">
-                    <span data-lang="cs">Na míru</span>
-                    <span data-lang="en">Tailor-made</span>
-                </h4>
-                <p class="text-slate-500 text-sm leading-relaxed px-4">
-                    <span data-lang="cs">Od úplných začátečníků po pilování carvingové techniky.</span>
-                    <span data-lang="en">From total beginners to advanced carving fine-tuning.</span>
-                </p>
-            </div>
-
-            <div class="flex flex-col items-center text-center space-y-4 group">
-                <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-yellow-400 transition-colors duration-300 shadow-sm">
-                    <i data-lucide="shield" class="w-10 h-10"></i>
-                </div>
-                <h4 class="font-bold text-xl text-slate-900">
-                    <span data-lang="cs">Bezpečí</span>
-                    <span data-lang="en">Safety First</span>
-                </h4>
-                <p class="text-slate-500 text-sm leading-relaxed px-4">
-                    <span data-lang="cs">Důraz na správné návyky a bezpečný pohyb na sjezdovce i mimo ni.</span>
-                    <span data-lang="en">Focus on right habits and safety on and off the slopes.</span>
-                </p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="sluzby" class="py-16 md:py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4">LOKALITY</h2>
-            <h3 class="text-3xl md:text-5xl font-black text-slate-900">
-                <span data-lang="cs">Kde se potkáme?</span><span data-lang="en">Where can we meet?</span>
-            </h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-700 transition-colors">
-                    <i data-lucide="mountain" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
-                </div>
-                <h4 class="text-2xl font-bold mb-4">Rokytnice nad Jiz.</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    <span data-lang="cs">Výuka přímo v areálu Studenov nebo Horní Domky. Skvělé zázemí pro všechny.</span>
-                    <span data-lang="en">Teaching in Studenov or Horní Domky. Great facilities for everyone.</span>
-                </p>
-            </div>
-
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-yellow-400 transition-colors">
-                    <i data-lucide="users" class="w-8 h-8 text-yellow-600 group-hover:text-blue-900 transition-colors"></i>
-                </div>
-                <h4 class="text-2xl font-bold mb-4">Areál U Čápa</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    <span data-lang="cs">Příchovice – perfektní místo pro rodiny s dětmi a první krůčky na lyžích.</span>
-                    <span data-lang="en">Příchovice – a perfect place for families and the first steps on skis.</span>
-                </p>
-            </div>
-
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-700 transition-colors">
-                    <i data-lucide="navigation" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
-                </div>
-                <h4 class="text-2xl font-bold mb-4">Harrachov</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    <span data-lang="cs">Cílená výuka techniky a carvingu na širokých sjezdovkách v Harrachově.</span>
-                    <span data-lang="en">Targeted technique and carving lessons on wide slopes in Harrachov.</span>
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="o-mne" class="py-16 md:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-            <div class="w-full md:w-1/2">
-                <div class="relative">
-                    <div class="absolute inset-0 bg-yellow-400 rounded-[2.5rem] rotate-3 opacity-20 transform translate-x-4 translate-y-4"></div>
-                    <img src="photos/Lukas_Macourek.webp" alt="Lukáš Macourek" class="relative rounded-[2.5rem] shadow-2xl w-full object-cover aspect-[4/5] md:aspect-auto">
-                </div>
-            </div>
-            <div class="w-full md:w-1/2">
-                <h2 class="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4">VÁŠ INSTRUKTOR</h2>
-                <h3 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 italic">
-                    Lukáš <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900 underline decoration-yellow-400 decoration-4">Macourek</span>
+    <section id="proc-se-mnou" class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4">
+                    <span data-lang="cs">PROČ SE MNOU</span><span data-lang="en">WHY ME</span>
+                </h2>
+                <h3 class="text-3xl md:text-5xl font-black text-slate-900">
+                    <span data-lang="cs">Zážitek, který vás posune</span>
+                    <span data-lang="en">An experience that moves you</span>
                 </h3>
-
-                <div class="space-y-6 text-lg text-slate-600 leading-relaxed mb-10">
-                    <p>
-                        <span data-lang="cs">Lyžování mě provází celý život a mým cílem je naučit vás nejen techniku, ale hlavně si pohyb na svahu užít. Každá lekce je přizpůsobena vašim schopnostem.</span>
-                        <span data-lang="en">Skiing has been with me my whole life, and my goal is to teach you not only the technique but mainly to enjoy the movement. Every lesson is adapted to your skills.</span>
-                    </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm">
+                        <i data-lucide="zap" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Rychlý pokrok</span><span data-lang="en">Fast Progress</span></h4>
+                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Díky individuálnímu přístupu uvidíte výsledky již po první hodině.</span><span data-lang="en">See visible results after your very first lesson.</span></p>
                 </div>
+                <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-yellow-50 text-yellow-600 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shadow-sm">
+                        <i data-lucide="smile" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Bez stresu</span><span data-lang="en">Zero Stress</span></h4>
+                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Učím trpělivě a s úsměvem. Moje lekce nejsou o drilu, ale o radosti z pohybu.</span><span data-lang="en">Patient teaching with a smile. It's about fun, not just drill.</span></p>
+                </div>
+                <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm">
+                        <i data-lucide="target" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Na míru</span><span data-lang="en">Tailor-made</span></h4>
+                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Od úplných začátečníků po pilování carvingové techniky.</span><span data-lang="en">From total beginners to advanced carving fine-tuning.</span></p>
+                </div>
+                <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 bg-yellow-50 text-yellow-600 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shadow-sm">
+                        <i data-lucide="shield" class="w-10 h-10"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Bezpečí</span><span data-lang="en">Safety First</span></h4>
+                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Důraz na správné návyky a bezpečný pohyb na sjezdovce i mimo ni.</span><span data-lang="en">Focus on right habits and safety on and off the slopes.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors">
-                        <div class="bg-blue-700 p-2 rounded-lg text-white shrink-0">
-                            <i data-lucide="award" class="w-6 h-6"></i>
+    <section id="o-mne" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-yellow-50/50 -z-10 rounded-l-[100px] hidden lg:block"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
+                <div class="w-full lg:w-5/12 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 blob-bg transform translate-x-4 translate-y-4 scale-105 opacity-50"></div>
+                    <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] md:aspect-auto">
+                        <img src="photos/Lukas_Macourek.webp" alt="Lukáš Macourek Portrait" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full lg:w-7/12" data-aos="fade-left">
+                    <h5 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2"><span data-lang="cs">VÁŠ INSTRUKTOR</span><span data-lang="en">YOUR INSTRUCTOR</span></h5>
+                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 italic">Lukáš <span class="text-blue-700 underline decoration-yellow-400 decoration-4 underline-offset-4">Macourek</span></h2>
+                    <div class="mt-8 mb-10 text-lg text-slate-600 leading-relaxed font-medium">
+                        <p><span data-lang="cs">Lyžování mě provází celý život a mým cílem je naučit vás nejen techniku, ale hlavně si pohyb na svahu užít. Každá lekce je přizpůsobena vašim schopnostem a potřebám.</span><span data-lang="en">Skiing has been with me my whole life. My goal is to teach you not only the technique but mainly to enjoy the movement. Every lesson is adapted to your skills.</span></p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="award" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-slate-900 mb-1">Licence</h4><p class="text-sm text-slate-500 font-medium">APUL L, ISIA Card</p></div>
                         </div>
-                        <span data-lang="en" class="font-bold text-slate-800 text-sm">Holder of APUL L license and ISIA card</span>
-                        <span data-lang="cs" class="font-bold text-slate-800 text-sm">Držitel licencí APUL L a ISIA card</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors">
-                        <div class="bg-blue-700 p-2 rounded-lg text-white shrink-0">
-                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-slate-900 mb-1">Akreditace</h4><p class="text-sm text-slate-500 font-medium"><span data-lang="cs">Průkaz MŠMT</span><span data-lang="en">MŠMT Certified</span></p></div>
                         </div>
-                        <span data-lang="en" class="font-bold text-slate-800 text-sm">Certified instructor by the Ministry of Education</span>
-                        <span data-lang="cs" class="font-bold text-slate-800 text-sm">Průkaz instruktora MŠMT</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors">
-                        <div class="bg-blue-700 p-2 rounded-lg text-white shrink-0">
-                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-slate-900 mb-1">Jazyky</h4><p class="text-sm text-slate-500 font-medium">EN / CZ / DE Friendly</p></div>
                         </div>
-                        <span data-lang="en" class="font-bold text-slate-800 text-sm">EN / CZ / DE friendly</span>
-                        <span data-lang="cs" class="font-bold text-slate-800 text-sm">EN / CZ / DE Friendly</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors">
-                        <div class="bg-blue-700 p-2 rounded-lg text-white shrink-0">
-                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="heart" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-slate-900 mb-1"><span data-lang="cs">Zkušenost</span><span data-lang="en">Experience</span></h4><p class="text-sm text-slate-500 font-medium">10+ let / years</p></div>
                         </div>
-                        <span data-lang="en" class="font-bold text-slate-800 text-sm">10+ years of experience</span>
-                        <span data-lang="cs" class="font-bold text-slate-800 text-sm">Zkušenost 10+ let</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="cenik" class="py-16 md:py-24 bg-blue-900 text-white relative">
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-600 rounded-full blur-3xl opacity-20"></div>
-        <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-yellow-400 rounded-full blur-3xl opacity-10"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <h3 class="text-4xl md:text-5xl font-black">
-                <span data-lang="cs">Ceník služeb</span><span data-lang="en">Pricing</span>
-            </h3>
-            <p class="text-yellow-400 font-bold mt-4 uppercase tracking-widest text-sm">
-                <span data-lang="cs">Individuální výuka & Skitouring</span>
-                <span data-lang="en">Individual Lessons & Skitouring</span>
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
-            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-8 border-white/10 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-                <div class="bg-yellow-400 p-8 text-center text-blue-900">
-                    <h4 class="text-2xl font-black uppercase">
-                        <span data-lang="cs">Individuální výuka</span><span data-lang="en">Individual Lessons</span>
-                    </h4>
-                    <p class="font-bold opacity-80">(1-2 osoby)</p>
-                </div>
-                <div class="divide-y divide-slate-100 p-4 flex-grow">
-                    <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
-                        <span class="text-lg font-bold">3 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
-                        <span class="text-2xl font-black text-blue-800">2 900 Kč</span>
-                    </div>
-                    <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
-                        <span class="text-lg font-bold">4 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
-                        <span class="text-2xl font-black text-blue-800">3 900 Kč</span>
-                    </div>
-                    <div class="flex justify-between items-center p-6 bg-blue-50 rounded-2xl m-2">
-                        <span class="text-lg font-bold text-blue-900">6 <span data-lang="cs">hodin</span><span data-lang="en">hours</span></span>
-                        <span class="text-2xl font-black text-blue-700">5 600 Kč</span>
-                    </div>
-                </div>
+    <section id="sluzby" class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4">LOKALITY</h2>
+                <h3 class="text-3xl md:text-5xl font-black text-slate-900"><span data-lang="cs">Kde se potkáme?</span><span data-lang="en">Where can we meet?</span></h3>
             </div>
-
-            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-8 border-white/10 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-                <div class="bg-blue-600 p-8 text-center text-white">
-                    <h4 class="text-2xl font-black uppercase">
-                        <span data-lang="cs">Lyžování v Söldenu</span><span data-lang="en">Skiing in Sölden</span>
-                    </h4>
-                    <p class="text-xs mt-2 font-medium opacity-90 leading-tight">
-                        <span data-lang="cs">Říjen, listopad, prosinec (část), duben, květen, či dle domluvy</span>
-                        <span data-lang="en">Oct, Nov, Dec (part), Apr, May, or by agreement</span>
-                    </p>
-                </div>
-                <div class="divide-y divide-slate-100 p-4 flex-grow flex flex-col justify-center">
-                    <div class="flex justify-between items-center p-8 bg-blue-50 rounded-2xl m-2">
-                        <span class="text-lg font-bold text-blue-900">6 <span data-lang="cs">hodin</span><span data-lang="en">hours</span></span>
-                        <span class="text-2xl font-black text-blue-700">7 500 Kč</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-700 transition-colors">
+                        <i data-lucide="mountain" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
                     </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-8 border-white/10 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-                <div class="bg-slate-800 p-8 text-center text-white">
-                    <h4 class="text-2xl font-black uppercase">
-                        <span data-lang="cs">Skitouring</span><span data-lang="en">Skitouring</span>
-                    </h4>
-                    <p class="font-bold opacity-80">(1-4 osoby)</p>
-                </div>
-                <div class="divide-y divide-slate-100 p-4 flex-grow">
-                    <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
-                        <span class="text-lg font-bold">4 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
-                        <span class="text-2xl font-black text-blue-800">3 900 Kč</span>
+                    <h4 class="text-2xl font-bold mb-4">Rokytnice nad Jizerou</h4>
+                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Výuka přímo v areálu Studenov nebo Horní Domky. Skvělé zázemí pro všechny úrovně lyžařů.</span><span data-lang="en">Teaching in Studenov or Horní Domky. Great facilities for everyone.</span></p>
+                </article>
+                <article class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-yellow-400 transition-colors">
+                        <i data-lucide="users" class="w-8 h-8 text-yellow-600 group-hover:text-blue-900 transition-colors"></i>
                     </div>
-                    <div class="flex justify-between items-center p-6 bg-blue-50 rounded-2xl m-2">
-                        <span class="text-lg font-bold text-blue-900">6 <span data-lang="cs">hodin</span><span data-lang="en">hours</span></span>
-                        <span class="text-2xl font-black text-blue-700">5 600 Kč</span>
+                    <h4 class="text-2xl font-bold mb-4">Areál U Čápa, Příchovice</h4>
+                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Příchovice – perfektní místo pro rodiny s dětmi a úplně první krůčky na lyžích.</span><span data-lang="en">Příchovice – a perfect place for families and the first steps on skis.</span></p>
+                </article>
+                <article class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-700 transition-colors">
+                        <i data-lucide="navigation" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
                     </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="mt-12 bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                <div class="w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center text-blue-900 shrink-0">
-                    <i data-lucide="user-plus" class="w-10 h-10"></i>
-                </div>
-                <div>
-                    <p class="text-2xl font-black text-yellow-400">
-                        <span data-lang="cs">Skupinová výuka</span><span data-lang="en">Group Lessons</span>
-                    </p>
-                    <p class="text-blue-100 italic">
-                        <span data-lang="cs">Za každou další osobu navíc</span><span data-lang="en">For each additional person</span>
-                    </p>
-                </div>
-            </div>
-            <div class="text-center md:text-right">
-                <span class="text-4xl font-black text-white">+ 250 Kč</span>
-                <p class="text-xs uppercase font-bold text-yellow-400 tracking-tighter">/ hodina / os.</p>
+                    <h4 class="text-2xl font-bold mb-4">Harrachov</h4>
+                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Cílená výuka techniky a carvingu na širokých sjezdovkách v Harrachově.</span><span data-lang="en">Targeted technique and carving lessons on wide slopes in Harrachov.</span></p>
+                </article>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="booking" class="py-16 md:py-24 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">
-            <span data-lang="cs">Zarezervujte si svůj termín</span><span data-lang="en">Book your slot</span>
-        </h3>
-        <p class="text-xl text-slate-500 mb-12">
-            <span data-lang="cs">Stačí kliknout a vybrat si volný čas přímo v mém kalendáři.</span>
-            <span data-lang="en">Just click and pick a free time directly in my calendar.</span>
-        </p>
-
-        <div class="bg-white p-4 md:p-8 rounded-[2.5rem] shadow-2xl border border-slate-200">
-            <div class="flex items-center justify-center min-h-[600px]">
-                <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-vyuka180"></div>
-                <script type="text/javascript">
-                    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-                    Cal("init", "vyuka180", {origin:"https://app.cal.com"});
-
-                    Cal.ns.vyuka180("inline", {
-                        elementOrSelector:"#my-cal-inline-vyuka180",
-                        config: {"layout":"month_view","theme":"auto"},
-                        calLink: "danielnevrklo/",
-                    });
-
-                    Cal.ns.vyuka180("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#0400ff"},"dark":{"cal-brand":"#f9d800"}},"hideEventTypeDetails":false,"layout":"month_view"});
-                </script>
+    <section id="cenik" class="py-16 md:py-24 bg-blue-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 right-0 w-64 h-64 bg-yellow-400 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-5xl font-black"><span data-lang="cs">Ceník služeb</span><span data-lang="en">Pricing</span></h3>
+                <p class="text-yellow-400 font-bold mt-4 uppercase tracking-widest text-sm"><span data-lang="cs">Férové ceny za prémiovou kvalitu</span><span data-lang="en">Fair prices for premium quality</span></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-4 border-transparent hover:border-yellow-400 transition-all flex flex-col transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
+                    <div class="bg-yellow-400 p-8 text-center text-blue-900">
+                        <h4 class="text-2xl font-black uppercase"><span data-lang="cs">Individuální výuka</span><span data-lang="en">Individual Lessons</span></h4>
+                        <p class="font-bold opacity-80 mt-1">(1-2 osoby)</p>
+                    </div>
+                    <div class="divide-y divide-slate-100 p-4 flex-grow">
+                        <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
+                            <span class="text-lg font-bold text-slate-700">3 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
+                            <span class="text-2xl font-black text-blue-800">2 900 Kč</span>
+                        </div>
+                        <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
+                            <span class="text-lg font-bold text-slate-700">4 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
+                            <span class="text-2xl font-black text-blue-800">3 900 Kč</span>
+                        </div>
+                        <div class="flex justify-between items-center p-6 bg-blue-50 rounded-2xl m-2 border border-blue-100">
+                            <span class="text-lg font-bold text-blue-900">6 <span data-lang="cs">hodin</span><span data-lang="en">hours</span></span>
+                            <span class="text-2xl font-black text-blue-700">5 600 Kč</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-4 border-transparent hover:border-yellow-400 transition-all flex flex-col transform hover:-translate-y-2 relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-blue-600 p-8 text-center text-white">
+                        <h4 class="text-2xl font-black uppercase"><span data-lang="cs">Lyžování v Söldenu</span><span data-lang="en">Skiing in Sölden</span></h4>
+                        <p class="text-xs mt-2 font-medium opacity-90 leading-tight"><span data-lang="cs">Říjen, Listopad, Prosinec, Duben, Květen</span><span data-lang="en">Oct, Nov, Dec, Apr, May</span></p>
+                    </div>
+                    <div class="divide-y divide-slate-100 p-4 flex-grow flex flex-col justify-center">
+                        <div class="flex justify-between items-center p-8 bg-blue-50 rounded-2xl m-2 border border-blue-100">
+                            <span class="text-lg font-bold text-blue-900">6 <span data-lang="cs">hodin</span><span data-lang="en">hours</span></span>
+                            <span class="text-2xl font-black text-blue-700">7 500 Kč</span>
+                        </div>
+                        <p class="text-center text-slate-500 text-sm px-6 pt-4 italic"><span data-lang="cs">Cena nezahrnuje skipas a ubytování instruktora.</span><span data-lang="en">Price excludes skipass and instructor's accommodation.</span></p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-4 border-transparent hover:border-yellow-400 transition-all flex flex-col transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 p-8 text-center text-white">
+                        <h4 class="text-2xl font-black uppercase"><span data-lang="cs">Skitouring</span><span data-lang="en">Skitouring</span></h4>
+                        <p class="font-bold opacity-80 mt-1">(1-4 osoby)</p>
+                    </div>
+                    <div class="divide-y divide-slate-100 p-4 flex-grow">
+                        <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
+                            <span class="text-lg font-bold text-slate-700">4 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
+                            <span class="text-2xl font-black text-blue-800">3 900 Kč</span>
+                        </div>
+                        <div class="flex justify-between items-center p-6 bg-blue-50 rounded-2xl m-2 border border-blue-100">
+                            <span class="text-lg font-bold text-blue-900">6 <span data-lang="cs">hodin</span><span data-lang="en">hours</span></span>
+                            <span class="text-2xl font-black text-blue-700">5 600 Kč</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="recenze" class="py-16 md:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-16">
-            <span data-lang="cs">Co říkají klienti</span><span data-lang="en">Google Reviews</span>
-        </h3>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 italic relative hover:bg-white hover:shadow-xl transition-all duration-300">
-                <div class="flex text-yellow-400 mb-6 justify-center">
-                    <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+    <section id="booking" class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-6" data-aos="fade-up"><span data-lang="cs">Zarezervujte si svůj termín</span><span data-lang="en">Book your slot</span></h3>
+            <p class="text-lg md:text-xl text-slate-500 mb-12" data-aos="fade-up" data-aos-delay="100"><span data-lang="cs">Stačí kliknout a vybrat si volný čas přímo v mém kalendáři.</span><span data-lang="en">Just click and pick a free time directly in my calendar.</span></p>
+            <div class="bg-white p-2 md:p-6 rounded-[2.5rem] shadow-2xl border border-slate-200" data-aos="zoom-in">
+                <div class="w-full h-[600px] overflow-hidden rounded-2xl">
+                    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-vyuka180"></div>
+                    <script type="text/javascript">
+                        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                        Cal("init", "vyuka180", {origin:"https://app.cal.com"});
+                        Cal.ns.vyuka180("inline", {
+                            elementOrSelector:"#my-cal-inline-vyuka180",
+                            config: {"layout":"month_view","theme":"auto"},
+                            calLink: "danielnevrklo/",
+                        });
+                        Cal.ns.vyuka180("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#1d4ed8"},"dark":{"cal-brand":"#facc15"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                    </script>
                 </div>
-                <p class="text-slate-600 mb-8">"Lukáš je fantastický instruktor. Děti se na lekci těšily a udělaly obrovský pokrok hned první den u Čápa."</p>
-                <span class="font-black text-slate-900 not-italic">— Jana Svobodová</span>
-            </div>
-            <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 italic relative hover:bg-white hover:shadow-xl transition-all duration-300">
-                <div class="flex text-yellow-400 mb-6 justify-center">
-                    <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
-                </div>
-                <p class="text-slate-600 mb-8">"Professional approach in Rokytnice. My carving technique improved significantly after just 2 hours."</p>
-                <span class="font-black text-slate-900 not-italic">— Peter K.</span>
-            </div>
-            <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 italic relative hover:bg-white hover:shadow-xl transition-all duration-300">
-                <div class="flex text-yellow-400 mb-6 justify-center">
-                    <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
-                </div>
-                <p class="text-slate-600 mb-8">"Vše proběhlo hladce, skvělá domluva. Lukáš je trpělivý a výuka v Harrachově byla super!"</p>
-                <span class="font-black text-slate-900 not-italic">— Marek H.</span>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="recenze" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-16" data-aos="fade-up"><span data-lang="cs">Co říkají klienti</span><span data-lang="en">Client Reviews</span></h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 italic relative" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex text-yellow-400 mb-6 justify-center">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-600 mb-8">"Lukáš je fantastický instruktor. Děti se na lekci těšily a udělaly obrovský pokrok hned první den u Čápa."</p>
+                    <span class="font-black text-slate-900 not-italic block">— Jana Svobodová</span>
+                </div>
+                <div class="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 italic relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-yellow-400 mb-6 justify-center">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-600 mb-8">"Professional approach in Rokytnice. My carving technique improved significantly after just 2 hours."</p>
+                    <span class="font-black text-slate-900 not-italic block">— Peter K.</span>
+                </div>
+                <div class="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 italic relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-yellow-400 mb-6 justify-center">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-600 mb-8">"Vše proběhlo hladce, skvělá domluva. Lukáš je trpělivý a výuka v Harrachově byla super!"</p>
+                    <span class="font-black text-slate-900 not-italic block">— Marek H.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer id="kontakt" class="bg-slate-900 text-white py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 md:gap-20">
-            <div>
-                <h3 class="text-4xl md:text-5xl font-black mb-10 italic">
-                    <span data-lang="cs">Vidíme se na <span class="text-yellow-400">svahu?</span></span>
-                    <span data-lang="en">See you on the <span class="text-yellow-400">slope?</span></span>
-                </h3>
-
-                <div class="space-y-8">
-                    <a href="tel:+420728183036" class="flex items-center gap-6 group">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center
-                    group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all shrink-0">
-                            <i data-lucide="phone" class="w-8 h-8"></i>
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+            <div data-aos="fade-right">
+                <h3 class="text-4xl md:text-5xl font-black mb-10 italic"><span data-lang="cs">Vidíme se na <span class="text-yellow-400">svahu?</span></span><span data-lang="en">See you on the <span class="text-yellow-400">slope?</span></span></h3>
+                <div class="space-y-6">
+                    <a href="tel:+420728183036" class="flex items-center gap-3 sm:gap-6 group p-2 rounded-2xl hover:bg-white/5 transition-colors">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all shrink-0">
+                            <i data-lucide="phone" class="w-5 h-5 sm:w-7 sm:h-7"></i>
                         </div>
-                        <span class="text-xl md:text-2xl font-bold transition-colors group-hover:text-yellow-400 break-all">
-                            +420 728 183 036
-                        </span>
+                        <span class="text-lg sm:text-2xl font-bold transition-colors group-hover:text-yellow-400">+420 728 183 036</span>
                     </a>
-
-                    <a href="mailto:lukas.macourek@gmail.com" class="flex items-center gap-6 group">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center
-                    group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all shrink-0">
-                            <i data-lucide="mail" class="w-8 h-8"></i>
+                    <a href="mailto:lukas.macourek@gmail.com" class="flex items-center gap-3 sm:gap-6 group p-2 rounded-2xl hover:bg-white/5 transition-colors">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all shrink-0">
+                            <i data-lucide="mail" class="w-5 h-5 sm:w-7 sm:h-7"></i>
                         </div>
-                        <span class="text-xl md:text-2xl font-bold transition-colors group-hover:text-yellow-400 break-all">
-                            lukas.macourek@gmail.com
-                        </span>
+                        <span class="text-sm sm:text-xl md:text-2xl font-bold transition-colors group-hover:text-yellow-400 whitespace-nowrap">lukas.macourek@gmail.com</span>
                     </a>
                 </div>
-
             </div>
-
-            <div class="bg-white/5 p-10 md:p-12 rounded-[2.5rem] border border-white/10 hover:border-white/20 transition-colors">
+            <div class="bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10" data-aos="fade-left">
                 <h4 class="text-2xl font-bold mb-8 text-yellow-400 underline decoration-white/20">Lukáš Macourek</h4>
-                <p class="text-slate-400 leading-relaxed mb-8">
-                    Certifikovaný instruktor lyžování se specializací na dětskou výuku a carving. Působící v nejlepších střediscích Krkonoš.
-                </p>
+                <p class="text-slate-400 leading-relaxed mb-8"><span data-lang="cs">Certifikovaný instruktor lyžování se specializací na individuální výuku a skitouring. Působící v nejlepších střediscích Krkonoš.</span><span data-lang="en">Certified ski instructor specializing in individual lessons and ski touring. Operating in the best resorts of the Giant Mountains (Krkonoše).</span></p>
                 <div class="flex gap-4">
-                    <a href="https://www.instagram.com/macoureklukas/" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all shadow-lg"><i data-lucide="instagram"></i></a>
-                    <a href="https://www.facebook.com/lukasmacourek.cz" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all shadow-lg"><i data-lucide="facebook"></i></a>
+                    <a href="https://www.instagram.com/macoureklukas/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all shadow-lg transform hover:scale-110" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="https://www.facebook.com/lukasmacourek.cz" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all shadow-lg transform hover:scale-110" aria-label="Facebook"><i data-lucide="facebook"></i></a>
                 </div>
             </div>
         </div>
-
-        <div class="mt-24 pt-12 border-t border-white/5 text-center text-slate-500 text-sm">
-            © 2026 Lukáš Macourek. Web vytvořen pro váš nejlepší zážitek na lyžích.
+        <div class="mt-20 pt-10 border-t border-white/10 text-center text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <span>© 2026 Lukáš Macourek.</span>
+            <span>Webdesign by AI & Human Collab</span>
         </div>
     </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     // Inicializace ikon
     lucide.createIcons();
 
-    // Jazyková logika
+    // Inicializace Animací (AOS)
+    AOS.init({
+        once: true,
+        offset: 100,
+        duration: 800,
+        easing: 'ease-out-cubic',
+    });
+
+    // Mobilní menu Logika
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navbar = document.getElementById('navbar');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+            // OTEVŘENÉ MENU
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+
+            // Zamknout scroll
+            document.body.style.overflow = 'hidden';
+
+            navbar.classList.add('force-white-nav');
+
+            // Tlačítko křížku
+            mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
+            mobileBtn.classList.add('text-slate-900', 'hover:bg-slate-100');
+            mobileBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+
+        } else {
+            // ZAVŘENÉ MENU
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0');
+
+            // Povolit scroll
+            document.body.style.overflow = '';
+
+            // Reset stylů
+            navbar.classList.remove('force-white-nav');
+
+            resetMenuButtonStyles();
+            mobileBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+        }
+        lucide.createIcons();
+    }
+
+    function resetMenuButtonStyles() {
+        if (window.scrollY > 50) {
+            mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
+            mobileBtn.classList.add('text-slate-900', 'hover:bg-slate-100');
+        } else {
+            mobileBtn.classList.remove('text-slate-900', 'hover:bg-slate-100');
+            mobileBtn.classList.add('text-white', 'hover:bg-white/10');
+        }
+    }
+
+    mobileBtn.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) toggleMenu();
+        });
+    });
+
+    // Jazyková mutace
     let isEn = false;
     function toggleLang() {
         isEn = !isEn;
         document.body.classList.toggle('lang-en', isEn);
-        const indicators = document.querySelectorAll('.lang-text');
-        indicators.forEach(el => el.innerText = isEn ? 'CZ' : 'EN');
+        document.getElementById('lang-indicator').innerText = isEn ? 'CZ' : 'EN';
+        const mobileLangText = document.getElementById('mobile-lang-indicator');
+        if(mobileLangText) mobileLangText.innerText = isEn ? 'Přepnout na Češtinu' : 'Switch to English';
     }
 
-    // --- LOGIKA MOBILNÍHO MENU ---
-    const menuTrigger = document.getElementById('mobile-menu-trigger');
-    const menuClose = document.getElementById('mobile-menu-close');
-    const menuOverlay = document.getElementById('mobile-menu-overlay');
-    const menuLinks = document.querySelectorAll('.mobile-link');
-    const menuTriggerIcon = menuTrigger.querySelector('i');
+    // Scroll Navbar Effect
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        const links = document.getElementById('nav-links');
+        const langBtn = document.getElementById('lang-btn');
+        const cta = document.getElementById('nav-cta');
 
-    function openMenu() {
-        menuOverlay.classList.remove('translate-x-full');
-        document.body.classList.add('menu-open'); // Zabrání scrollování pozadí
-    }
+        if (isMenuOpen) return;
 
-    function closeMenu() {
-        menuOverlay.classList.add('translate-x-full');
-        document.body.classList.remove('menu-open');
-    }
-
-    // Event Listeners
-    menuTrigger.addEventListener('click', openMenu);
-    menuClose.addEventListener('click', closeMenu);
-
-    // Zavřít menu po kliknutí na odkaz
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // --- SCROLL EFEKT NAVIGACE ---
-    const nav = document.getElementById('navbar');
-    const links = document.getElementById('nav-links');
-    const langBtn = document.getElementById('lang-btn');
-    const cta = document.getElementById('nav-cta');
-    const logo = document.getElementById('nav-logo');
-
-    function updateNav() {
         if (window.scrollY > 50) {
-            // Scrolled state
             nav.classList.add('glass-nav', 'py-3');
             nav.classList.remove('py-4', 'md:py-6');
 
             links.classList.remove('text-white');
             links.classList.add('text-slate-600');
 
-            langBtn.classList.remove('text-white', 'border-white/40');
+            langBtn.classList.remove('text-white', 'border-white/50');
             langBtn.classList.add('text-slate-900', 'border-slate-300');
 
-            // Hamburger icon color change
-            menuTrigger.classList.remove('text-white');
-            menuTrigger.classList.add('text-blue-900');
+            cta.classList.add('shadow-xl');
+
+            // Ztmavit button
+            mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
+            mobileBtn.classList.add('text-slate-900', 'hover:bg-slate-100');
 
         } else {
-            // Top state
             nav.classList.remove('glass-nav', 'py-3');
             nav.classList.add('py-4', 'md:py-6');
 
             links.classList.add('text-white');
             links.classList.remove('text-slate-600');
 
-            langBtn.classList.add('text-white', 'border-white/40');
+            langBtn.classList.add('text-white', 'border-white/50');
             langBtn.classList.remove('text-slate-900', 'border-slate-300');
 
-            // Hamburger icon color change back
-            menuTrigger.classList.add('text-white');
-            menuTrigger.classList.remove('text-blue-900');
+            cta.classList.remove('shadow-xl');
+
+            // Zesvětlit button
+            mobileBtn.classList.remove('text-slate-900', 'hover:bg-slate-100');
+            mobileBtn.classList.add('text-white', 'hover:bg-white/10');
         }
-    }
-
-    window.addEventListener('scroll', updateNav);
-    // Spustit jednou při načtení
-    updateNav();
-
+    });
 </script>
 </body>
 </html>
