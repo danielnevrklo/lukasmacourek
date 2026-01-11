@@ -5,18 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Lukáš Macourek | Instruktor Lyžování</title>
-    <meta name="description" content="Individuální výuka lyžování pro děti i dospělé v Rokytnici, Harrachově a U Čápa. 10+ let zkušeností, licence APUL & ISIA. Rezervujte si lekci online.">
-    <meta name="keywords" content="instruktor lyžování, lyžařská škola, Rokytnice nad Jizerou, Harrachov, skitouring, výuka lyžování, Lukáš Macourek">
-    <meta name="author" content="Lukáš Macourek">
+    <meta name="description" content="Individuální výuka lyžování a skitouring v Rokytnici (Lysá hora), Harrachově a U Čápa. APUL L Lektor s praxí ze zahraničí.">
     <meta name="robots" content="index, follow">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Lukáš Macourek | Instruktor Lyžování">
-    <meta property="og:description" content="Naučte se lyžovat s radostí a jistotou. Profesionální přístup v Krkonoších.">
-    <meta property="og:image" content="photos/Lukas_Macourek_Hero.webp">
-    <meta property="og:url" content="https://www.lukasmacourek.cz">
-
-    <link rel="icon" type="image/png" href="photos/Logo_Favicon.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -31,10 +21,10 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
 
         .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+            /* Jemný gradient zleva, aby byl text čitelný, ale fotka vpravo jasná */
+            background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.0) 100%);
         }
 
-        /* Styl pro skleněnou navigaci */
         .glass-nav {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
@@ -42,7 +32,6 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        /* Třída, která vynutí bílé pozadí (pro otevřené mobilní menu) */
         .force-white-nav {
             background: #ffffff !important;
             border-bottom: none !important;
@@ -54,11 +43,10 @@
         .lang-en [data-lang="cs"] { display: none; }
         .lang-en [data-lang="en"] { display: block; }
 
-        /* Custom shape for profile image background */
+        /* Blob background shape */
         .blob-bg {
-            background-color: #fef08a; /* yellow-200 equivalent */
+            background-color: #fef08a;
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            z-index: 0;
         }
     </style>
 </head>
@@ -68,14 +56,14 @@
     <nav id="navbar" class="fixed w-full z-[60] transition-all duration-300 py-4 md:py-6 px-4 md:px-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center relative z-[60]">
             <div class="flex items-center gap-3">
-                <a href="#home">
-                <img src="photos/Lukas_Macourek_Logo.webp" class="h-10 md:h-12 w-auto object-contain transition-all duration-300" alt="Logo Lukáš Macourek">
+                <a href="#home" class="group">
+                    <img src="photos/Lukas_Macourek_Logo.webp" class="h-10 md:h-12 w-auto object-contain transition-all duration-300" alt="Logo Lukáš Macourek">
                 </a>
             </div>
 
             <div class="hidden md:flex items-center gap-8">
                 <div id="nav-links" class="flex gap-6 lg:gap-8 text-sm font-bold text-white transition-colors">
-                    <a href="#sluzby" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Služby</span><span data-lang="en">Services</span></a>
+                    <a href="#lokality" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Lokality</span><span data-lang="en">Locations</span></a>
                     <a href="#o-mne" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">O mně</span><span data-lang="en">About</span></a>
                     <a href="#cenik" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Ceník</span><span data-lang="en">Pricing</span></a>
                     <a href="#kontakt" class="hover:text-yellow-400 transition-colors"><span data-lang="cs">Kontakt</span><span data-lang="en">Contact</span></a>
@@ -98,14 +86,13 @@
         </div>
 
         <div id="mobile-menu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-start pt-32 space-y-8 md:hidden h-screen w-screen overflow-y-auto">
-            <a href="#sluzby" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Služby</span><span data-lang="en">Services</span></a>
+            <a href="#lokality" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Lokality</span><span data-lang="en">Locations</span></a>
             <a href="#o-mne" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">O mně</span><span data-lang="en">About</span></a>
             <a href="#cenik" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Ceník</span><span data-lang="en">Pricing</span></a>
             <a href="#kontakt" class="text-2xl font-bold text-slate-900 hover:text-blue-600 mobile-link"><span data-lang="cs">Kontakt</span><span data-lang="en">Contact</span></a>
 
             <div class="flex flex-col items-center gap-6 mt-8 pb-12">
                 <button onclick="toggleLang()" class="flex items-center gap-2 text-lg font-bold border-2 border-slate-200 text-slate-900 px-6 py-2 rounded-full">
-                    <i data-lucide="globe" class="w-5 h-5 text-blue-600"></i>
                     <span id="mobile-lang-indicator">Switch to English</span>
                 </button>
                 <a href="#booking" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl mobile-link hover:bg-blue-700 transition-colors">
@@ -117,22 +104,26 @@
 </header>
 
 <main>
-    <section id="home" class="relative h-[90vh] md:h-screen flex items-end md:items-center justify-start overflow-hidden">
+    <section id="home" class="relative h-[90vh] md:h-screen flex flex-col justify-start overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="photos/Lukas_Macourek_Hero.webp" alt="Instruktor lyžování Lukáš Macourek" class="w-full h-full object-cover object-[65%_center] md:object-center">
+            <img src="photos/Lukas_Macourek_Hero.webp" alt="Lukáš Macourek Lyžování" class="w-full h-full object-cover object-[70%_center] md:object-center">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pb-24 md:pb-0" data-aos="fade-up" data-aos-duration="1000">
-            <div class="max-w-3xl">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight mb-6 drop-shadow-2xl">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full h-full flex flex-col pt-32 md:pt-40" data-aos="fade-up" data-aos-duration="1000">
+            <div class="max-w-xl">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight mb-8 drop-shadow-2xl">
                     <span data-lang="cs">Lyžuj s radostí <br><span class="text-yellow-400">a jistotou.</span></span>
                     <span data-lang="en">Ski with joy <br><span class="text-yellow-400">& confidence.</span></span>
                 </h1>
-                <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 font-medium max-w-2xl leading-relaxed">
-                    <span data-lang="cs">Profesionální výuka pro děti i dospělé v Rokytnici, u Čápa a v Harrachově.</span>
-                    <span data-lang="en">Professional lessons for kids & adults in Rokytnice, U Čápa and Harrachov.</span>
-                </p>
+
+                <div class=" pl-6 mb-10   p-4 rounded-r-xl">
+                    <p class="text-lg sm:text-xl md:text-2xl text-white font-semibold leading-relaxed">
+                        <span data-lang="cs">Profesionální výuka pro děti i dospělé.<br>V Rokytnici nebo Harrachově.</span>
+                        <span data-lang="en">Professional lessons for kids & adults.<br>In Rokytnice or Harrachov.</span>
+                    </p>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#booking" class="bg-yellow-400 text-blue-900 px-8 md:px-10 py-4 rounded-2xl font-black text-lg hover:bg-white hover:scale-105 transition-all shadow-[0_20px_50px_rgba(250,204,21,0.3)] text-center">
                         <span data-lang="cs">CHCI REZERVOVAT</span><span data-lang="en">BOOK LESSON</span>
@@ -149,8 +140,8 @@
                     <span data-lang="cs">PROČ SE MNOU</span><span data-lang="en">WHY ME</span>
                 </h2>
                 <h3 class="text-3xl md:text-5xl font-black text-slate-900">
-                    <span data-lang="cs">Zážitek, který vás posune</span>
-                    <span data-lang="en">An experience that moves you</span>
+                    <span data-lang="cs">Výsledky i zážitek</span>
+                    <span data-lang="en">Results & Experience</span>
                 </h3>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
@@ -159,15 +150,17 @@
                         <i data-lucide="zap" class="w-10 h-10"></i>
                     </div>
                     <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Rychlý pokrok</span><span data-lang="en">Fast Progress</span></h4>
-                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Díky individuálnímu přístupu uvidíte výsledky již po první hodině.</span><span data-lang="en">See visible results after your very first lesson.</span></p>
+                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Díky individuálnímu přístupu uvidíte výsledky již po první lekci.</span><span data-lang="en">See visible results after your very first lesson.</span></p>
                 </div>
+
                 <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-20 h-20 bg-yellow-50 text-yellow-600 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shadow-sm">
                         <i data-lucide="smile" class="w-10 h-10"></i>
                     </div>
-                    <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Bez stresu</span><span data-lang="en">Zero Stress</span></h4>
-                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Učím trpělivě a s úsměvem. Moje lekce nejsou o drilu, ale o radosti.</span><span data-lang="en">Patient teaching with a smile. It's about fun, not just drill.</span></p>
+                    <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Dril i prožitek</span><span data-lang="en">Drill & Fun</span></h4>
+                    <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Lekce jsou nejen o drilu, ale i o radosti z pohybu. Přizpůsobím se vašim cílům.</span><span data-lang="en">Lessons are not just about drill, but also about joy. Tailored to your goals.</span></p>
                 </div>
+
                 <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm">
                         <i data-lucide="target" class="w-10 h-10"></i>
@@ -175,6 +168,7 @@
                     <h4 class="font-bold text-xl text-slate-900"><span data-lang="cs">Na míru</span><span data-lang="en">Tailor-made</span></h4>
                     <p class="text-slate-500 text-sm leading-relaxed"><span data-lang="cs">Od úplných začátečníků po pilování carvingové techniky.</span><span data-lang="en">From total beginners to advanced carving fine-tuning.</span></p>
                 </div>
+
                 <div class="flex flex-col items-center text-center space-y-4 group" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-20 h-20 bg-yellow-50 text-yellow-600 rounded-3xl flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shadow-sm">
                         <i data-lucide="shield" class="w-10 h-10"></i>
@@ -186,7 +180,7 @@
         </div>
     </section>
 
-    <section id="sluzby" class="py-16 md:py-24 bg-slate-50">
+    <section id="lokality" class="py-16 md:py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4">LOKALITY</h2>
@@ -195,24 +189,26 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <article class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="0">
                     <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-700 transition-colors">
-                        <i data-lucide="mountain" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
+                        <i data-lucide="mountain-snow" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">Rokytnice nad Jizerou</h4>
-                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Výuka přímo v areálu Studenov nebo Horní Domky. Skvělé zázemí pro všechny.</span><span data-lang="en">Teaching in Studenov or Horní Domky. Great facilities for everyone.</span></p>
+                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Lysá hora – variabilní a dlouhé sjezdovky. Výuka probíhá primárně v areálu Horní Domky.</span><span data-lang="en">Lysá hora offers variable and long slopes. Lessons usually take place in Horní Domky.</span></p>
                 </article>
+
                 <article class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-yellow-400 transition-colors">
-                        <i data-lucide="users" class="w-8 h-8 text-yellow-600 group-hover:text-blue-900 transition-colors"></i>
+                        <i data-lucide="utensils" class="w-8 h-8 text-yellow-600 group-hover:text-blue-900 transition-colors"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">Areál U Čápa, Příchovice</h4>
-                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Příchovice – perfektní místo pro rodiny s dětmi a první krůčky na lyžích.</span><span data-lang="en">Příchovice – a perfect place for families and the first steps on skis.</span></p>
+                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Výborné gastro, skvělé zázemí pro děti, slalom pro veřejnost i skicrossová dráha.</span><span data-lang="en">Great gastronomy, facilities for kids, public slalom and ski cross track.</span></p>
                 </article>
+
                 <article class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-700 transition-colors">
-                        <i data-lucide="navigation" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
+                        <i data-lucide="flag" class="w-8 h-8 text-blue-700 group-hover:text-yellow-400 transition-colors"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">Harrachov</h4>
-                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Cílená výuka techniky a carvingu na širokých sjezdovkách v Harrachově.</span><span data-lang="en">Targeted technique and carving lessons on wide slopes in Harrachov.</span></p>
+                    <p class="text-slate-600 leading-relaxed"><span data-lang="cs">Západní brána Krkonoš. Tradice, skokanské můstky a široké sjezdovky.</span><span data-lang="en">Western gateway to Giant Mountains. Tradition, ski jumps and wide slopes.</span></p>
                 </article>
             </div>
         </div>
@@ -230,39 +226,35 @@
                 </div>
                 <div class="w-full lg:w-7/12" data-aos="fade-left">
                     <h5 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2"><span data-lang="cs">VÁŠ INSTRUKTOR</span><span data-lang="en">YOUR INSTRUCTOR</span></h5>
-                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 italic">Lukáš <span class="text-blue-700 underline decoration-yellow-400 decoration-4 underline-offset-4">Macourek</span></h2>
-                    <div class="mt-8 mb-10 text-lg text-slate-600 leading-relaxed font-medium">
-                        <p><span data-lang="cs">Lyžování mě provází celý život a mým cílem je naučit vás nejen techniku, ale hlavně si pohyb na svahu užít. Každá lekce je přizpůsobena vašim schopnostem.</span><span data-lang="en">Skiing has been with me my whole life, and my goal is to teach you not only the technique but mainly to enjoy the movement. Every lesson is adapted to your skills.</span></p>
+
+                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-4">Lukáš Macourek</h2>
+
+                    <div class="mb-10 text-lg text-slate-600 leading-relaxed font-medium">
+                        <p><span data-lang="cs">Lyžování mě provází celý život. Mým cílem je naučit vás nejen techniku, ale hlavně si pohyb na svahu užít. Každá lekce je přizpůsobena vašim schopnostem.</span><span data-lang="en">Skiing has been with me my whole life. My goal is to teach you technique effectively so you can enjoy the mountains to the fullest.</span></p>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="award" class="w-6 h-6"></i></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
                             <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Licence</h4>
-                                <p data-lang="cs" class="text-sm text-slate-500 font-medium">Držitel licencí APUL L a ISIA card</p>
-                                <p data-lang="en" class="text-sm text-slate-500 font-medium">Holder of APUL L license and ISIA card</p>
+                                <h4 class="font-bold text-slate-900 mb-1"><span data-lang="cs">Vzdělání & Kariéra</span><span data-lang="en">Education & Career</span></h4>
+                                <ul class="text-sm text-slate-600 font-medium space-y-1">
+                                    <li>APUL L - Lektor</li>
+                                    <li>Držitel ISIA card</li>
+                                    <li>Průkaz instruktora MŠMT</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Akreditace</h4>
-                                <p class="text-sm text-slate-500 font-medium"><span data-lang="cs">Průkaz instruktora MŠMT</span><span data-lang="en">Certified instructor by the Ministry of Education</span></p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+
+                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100">
                             <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="globe" class="w-6 h-6"></i></div>
                             <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Jazyky</h4>
-                                <p class="text-sm text-slate-500 font-medium">EN / CZ Friendly</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                            <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0"><i data-lucide="heart" class="w-6 h-6"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1"><span data-lang="cs">Zkušenost</span><span data-lang="en">Experience</span></h4>
-                                <p data-lang="cs" class="text-sm text-slate-500 font-medium">10+ let </p>
-                                <p data-lang="en" class="text-sm text-slate-500 font-medium">10+ years of experience</p>
+                                <h4 class="font-bold text-slate-900 mb-1"><span data-lang="cs">Zkušenosti</span><span data-lang="en">Experience</span></h4>
+                                <ul class="text-sm text-slate-600 font-medium space-y-1">
+                                    <li>Příprava instruktorů</li>
+                                    <li>Zahraniční působení</li>
+                                    <li>Sölden (Rakousko)</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -282,6 +274,7 @@
                 <p class="text-yellow-400 font-bold mt-4 uppercase tracking-widest text-sm"><span data-lang="cs">Individuální výuka & Skitouring</span><span data-lang="en">Individual Lessons & Skitouring</span></p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
                 <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border-4 border-transparent hover:border-yellow-400 transition-all flex flex-col transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
                     <div class="bg-yellow-400 p-8 text-center text-blue-900">
                         <h4 class="text-2xl font-black uppercase"><span data-lang="cs">Individuální výuka</span><span data-lang="en">Individual Lessons</span></h4>
@@ -293,7 +286,7 @@
                             <span class="text-2xl font-black text-blue-800">2 900 Kč</span>
                         </div>
                         <div class="flex justify-between items-center p-6 hover:bg-slate-50 transition-colors">
-                            <span class="text-lg font-bold text-slate-700">4 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span></span>
+                            <span class="text-lg font-bold text-slate-700">4 <span data-lang="cs">hodiny</span><span data-lang="en">hours</span> <span class="text-xs text-slate-400 block font-normal">(pouze ranní blok)</span></span>
                             <span class="text-2xl font-black text-blue-800">3 900 Kč</span>
                         </div>
                         <div class="flex justify-between items-center p-6 bg-blue-50 rounded-2xl m-2 border border-blue-100">
@@ -307,8 +300,8 @@
                     <div class="bg-blue-600 p-8 text-center text-white">
                         <h4 class="text-2xl font-black uppercase"><span data-lang="cs">Lyžování v Söldenu</span><span data-lang="en">Skiing in Sölden</span></h4>
                         <p class="text-xs mt-2 font-medium opacity-90 leading-tight">
-                            <span data-lang="cs">Říjen, listopad, prosinec (část), duben, květen, či dle domluvy</span>
-                            <span data-lang="en">Oct, Nov, Dec (part), Apr, May, or by agreement</span>
+                            <span data-lang="cs">Listopad & Duben (jinak dle domluvy)</span>
+                            <span data-lang="en">November & April (or by agreement)</span>
                         </p>
                     </div>
                     <div class="divide-y divide-slate-100 p-4 flex-grow flex flex-col justify-center">
@@ -342,7 +335,8 @@
     <section id="booking" class="py-16 md:py-24 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-6" data-aos="fade-up"><span data-lang="cs">Zarezervujte si svůj termín</span><span data-lang="en">Book your slot</span></h3>
-            <p class="text-lg md:text-xl text-slate-500 mb-12" data-aos="fade-up" data-aos-delay="100"><span data-lang="cs">Stačí kliknout a vybrat si volný čas přímo v mém kalendáři.</span><span data-lang="en">Just click and pick a free time directly in my calendar.</span></p>
+            <p class="text-lg md:text-xl text-slate-500 mb-12" data-aos="fade-up" data-aos-delay="100"><span data-lang="cs">Vyberte si volný čas přímo v mém kalendáři.</span><span data-lang="en">Just click and pick a free time directly in my calendar.</span></p>
+
             <div class="bg-white p-2 md:p-6 rounded-[2.5rem] shadow-2xl border border-slate-200" data-aos="zoom-in">
                 <div class="w-full h-[600px] overflow-hidden rounded-2xl">
                     <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-vyuka180"></div>
@@ -352,11 +346,19 @@
                         Cal.ns.vyuka180("inline", {
                             elementOrSelector:"#my-cal-inline-vyuka180",
                             config: {"layout":"month_view","theme":"auto"},
-                            calLink: "danielnevrklo/",
+                            calLink: "danielnevrklo/", // ZDE BUDE VÁŠ CAL LINK
                         });
                         Cal.ns.vyuka180("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#1d4ed8"},"dark":{"cal-brand":"#facc15"}},"hideEventTypeDetails":false,"layout":"month_view"});
                     </script>
                 </div>
+            </div>
+
+            <div class="mt-12 bg-white p-8 rounded-3xl border border-blue-100 shadow-lg text-left md:text-center flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+                <div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Nenašli jste, co jste hledali?</h4>
+                    <p class="text-slate-600 text-sm">Chcete specifický čas, bootfitting nebo produkt na míru? Napište mi.</p>
+                </div>
+                <a href="mailto:lukas.macourek@gmail.com" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-800 transition-colors whitespace-nowrap">Napsat zprávu</a>
             </div>
         </div>
     </section>
@@ -414,7 +416,7 @@
             <div class="bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10" data-aos="fade-left">
                 <h4 class="text-2xl font-bold mb-8 text-yellow-400 underline decoration-white/20">Lukáš Macourek</h4>
                 <p class="text-slate-400 leading-relaxed mb-8">
-                    Certifikovaný instruktor lyžování se specializací na individuální výuku lyžování a skitouring. Působící v nejlepších střediscích Krkonoš.
+                    Certifikovaný instruktor lyžování se specializací na individuální výuku a skitouring. Nejlepší střediska Krkonoš.
                 </p>
                 <div class="flex gap-4">
                     <a href="https://www.instagram.com/macoureklukas/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all shadow-lg transform hover:scale-110" aria-label="Instagram"><i data-lucide="instagram"></i></a>
@@ -422,8 +424,21 @@
                 </div>
             </div>
         </div>
-        <div class="mt-20 pt-10 border-t border-white/10 text-center text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+
+        <div class="mt-20 pt-10 border-t border-white/10" id="partneri">
+            <h5 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-6">Partneři & Odkazy</h5>
+            <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm text-slate-400 font-medium">
+                <a href="#" class="hover:text-yellow-400 transition-colors">Salomon</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Sidas</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Skiareál Rokytnice</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Harrachov</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Bootfitting</a>
+            </div>
+        </div>
+
+        <div class="mt-10 text-slate-600 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
             <span>© 2026 Lukáš Macourek. Web vytvořen pro váš nejlepší zážitek na lyžích.</span>
+            <span class="font-bold text-slate-500">Nejlepší střediska Krkonoš</span>
         </div>
     </div>
 </footer>
@@ -446,37 +461,28 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const navbar = document.getElementById('navbar');
+    const logoText = document.getElementById('logo-text');
     let isMenuOpen = false;
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
 
         if (isMenuOpen) {
-            // OTEVŘENÉ MENU
             mobileMenu.classList.remove('translate-x-full');
             mobileMenu.classList.add('translate-x-0');
-
-            // Zamknout scroll
             document.body.style.overflow = 'hidden';
-
             navbar.classList.add('force-white-nav');
-
-            // Tlačítko křížku
             mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
             mobileBtn.classList.add('text-slate-900', 'hover:bg-slate-100');
             mobileBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+            logoText.classList.remove('text-white');
+            logoText.classList.add('text-slate-900');
 
         } else {
-            // ZAVŘENÉ MENU
             mobileMenu.classList.add('translate-x-full');
             mobileMenu.classList.remove('translate-x-0');
-
-            // Povolit scroll
             document.body.style.overflow = '';
-
-            // Reset stylů
             navbar.classList.remove('force-white-nav');
-
             resetMenuButtonStyles();
             mobileBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
         }
@@ -487,9 +493,13 @@
         if (window.scrollY > 50) {
             mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
             mobileBtn.classList.add('text-slate-900', 'hover:bg-slate-100');
+            logoText.classList.remove('text-white');
+            logoText.classList.add('text-slate-900');
         } else {
             mobileBtn.classList.remove('text-slate-900', 'hover:bg-slate-100');
             mobileBtn.classList.add('text-white', 'hover:bg-white/10');
+            logoText.classList.remove('text-slate-900');
+            logoText.classList.add('text-white');
         }
     }
 
@@ -524,6 +534,9 @@
             nav.classList.add('glass-nav', 'py-3');
             nav.classList.remove('py-4', 'md:py-6');
 
+            logoText.classList.remove('text-white');
+            logoText.classList.add('text-slate-900');
+
             links.classList.remove('text-white');
             links.classList.add('text-slate-600');
 
@@ -532,13 +545,15 @@
 
             cta.classList.add('shadow-xl');
 
-            // Ztmavit button
             mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
             mobileBtn.classList.add('text-slate-900', 'hover:bg-slate-100');
 
         } else {
             nav.classList.remove('glass-nav', 'py-3');
             nav.classList.add('py-4', 'md:py-6');
+
+            logoText.classList.remove('text-slate-900');
+            logoText.classList.add('text-white');
 
             links.classList.add('text-white');
             links.classList.remove('text-slate-600');
@@ -548,7 +563,6 @@
 
             cta.classList.remove('shadow-xl');
 
-            // Zesvětlit button
             mobileBtn.classList.remove('text-slate-900', 'hover:bg-slate-100');
             mobileBtn.classList.add('text-white', 'hover:bg-white/10');
         }
